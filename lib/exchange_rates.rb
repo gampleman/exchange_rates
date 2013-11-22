@@ -12,14 +12,14 @@ class ExchangeRates
     parse_rates
     if rates = @@rates[date]
       unless from_rate = rates[from]
-        if from == 'EUR'
+        if from == @@base_currency
           from_rate = 1.0
         else
           raise "Unknown 'from' currency"
         end
       end
       unless to_rate = rates[to]
-        if to == 'EUR'
+        if to == @@base_currency
           to_rate = 1.0
         else
           raise "Unknown 'to' currency"
