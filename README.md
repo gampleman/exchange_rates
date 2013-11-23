@@ -3,7 +3,7 @@
 ExchangeRates is a Ruby Gem that allows currency conversion between a number of currencies and allows a historical overview of the currencies. It takes its information from the [European Central Banks historical feed](
 http://www.ecb.europa.eu/stats/eurofxref/eurofxref-hist-90d.xml).
 
-A demo application can be seen running at http://exchange.herokuapp.com and the source code is [available here](https://github.com/gampleman/exchange_rates_demo).
+A demo application can be seen running at http://exchange-rates.herokuapp.com and the source code is [available here](https://github.com/gampleman/exchange_rates/blob/master/example.rb).
 
 ## Installation
 
