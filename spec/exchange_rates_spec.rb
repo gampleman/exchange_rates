@@ -34,6 +34,14 @@ describe ExchangeRates do
   it "should spread data over time" do
     ExchangeRates.over_time('EUR', 'CZK').should eq({Date::civil(2013, 11, 20) => 27.329, DATE1 => 27.197})
   end  
+  
+  it "should give the list of supported currencies" do
+    ExchangeRates.supported_currencies.should eq(%w[USD JPY BGN CZK EUR])
+  end
+  
+  it "should give the list of supported dates" do
+    ExchangeRates.supported_dates.should eq([DATE1, Date::civil(2013, 11, 20)])
+  end
 end
 
 

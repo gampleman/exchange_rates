@@ -37,6 +37,7 @@ class ExchangeRates
   #    to   - to currency, defaults to  base_currency (typically EUR)
   #    date - date at which to perform conversion, defaults to current date
   def self.convert(amount, opts = {})
+    parse_rates
     options = {from: @@base_currency, to: @@base_currency, date: Date.today}.merge(opts)
     amount.to_f * at(options[:date], options[:from], options[:to])
   end
@@ -82,6 +83,18 @@ class ExchangeRates
   def self.set_rates(rates, base = 'EUR')
     @@rates = rates
     @@base_currency = base
+  end
+  
+  # Outputs an array of dates included in the current data set.
+  def self.available_dates
+    parse_rates
+    @@rates.keys
+  end
+    
+  # Outputs an array of supported currencies.
+  def self.available_currencies
+    parse_rates
+    @@rates.first[1].keys + [@@base_currency]
   end
   
 end
