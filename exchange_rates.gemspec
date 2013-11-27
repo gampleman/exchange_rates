@@ -14,6 +14,7 @@ Gem::Specification.new do |gem|
   gem.name          = "exchange_rates"
   gem.require_paths = ["lib"]
   gem.version       = ExchangeRates::VERSION
+  gem.license       = 'MIT'
   
   gem.add_dependency "nokogiri"
   gem.add_development_dependency "rspec"
