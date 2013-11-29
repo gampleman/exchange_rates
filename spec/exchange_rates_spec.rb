@@ -36,11 +36,11 @@ describe ExchangeRates do
   end  
   
   it "should give the list of supported currencies" do
-    ExchangeRates.supported_currencies.should eq(%w[USD JPY BGN CZK EUR])
+    ExchangeRates.available_currencies.should eq(%w[USD JPY BGN CZK EUR])
   end
   
   it "should give the list of supported dates" do
-    ExchangeRates.supported_dates.should eq([DATE1, Date::civil(2013, 11, 20)])
+    ExchangeRates.available_dates.should eq([DATE1, Date::civil(2013, 11, 20)])
   end
 end
 
