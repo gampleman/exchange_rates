@@ -21,11 +21,11 @@ Or install it yourself as:
 
 ## Usage
 
-The first task that the programmer must use is to obtain the data source. The library assumes it will be in `./exchange-rates.xml`, however the path can be set via the environment variable `EXCHANGE_RATE_FILE`, which should point to the exchange rate file. This file can be downloaded from the [ECB website](http://www.ecb.europa.eu/stats/eurofxref/eurofxref-hist-90d.xml). 
+The first task that the programmer must use is to obtain the data source. The library assumes it will be in `./exchange-rates.xml`, however the path can be set via the environment variable `EXCHANGE_RATE_FILE`, which should point to the exchange rate file. This file can be downloaded from the [ECB website](http://www.ecb.europa.eu/stats/eurofxref/eurofxref-hist-90d.xml).
 
-You can add this to your crontab to automatically download the updated files (where MY_PROJECT_PATH is an absolute path to your project). 
-
-    @daily curl -o MY_PROJECT_PATH/exchange-rates.xml http://www.ecb.europa.eu/stats/eurofxref/eurofxref-hist-90d.xml >/dev/null 2>&1
+The library will fetch this file automatically if not present, however it is your responsibility to
+maintain this file as fresh as you need it. You can download a new version with
+`ExchangeRates.fetch_rates!`.
 
 Finally if you have a different datasource, you can simply parse it and call `ExchangeRates.set_rates(data, base_currency)`, where `data` will be your currency data organized by date and `base_currency` will be the currency code to which your rates are relative to. For example:
 
